@@ -31,7 +31,7 @@ Ejercicio:
 * CHAR es una longitud de caracteres fijas y VARCHAR  es una cadena de longitud variable. Ambas especificadas por el usuario.
 
 6. Defina brevemente el significado de las siglas SQL(valor .85)
-7. 
+ 
 * Structured Query Language
 
 7. Defina brevemente qué es MySQL WorkBench (valor .85)
@@ -52,6 +52,9 @@ Ejercicio:
 
 En un mapa conceptual presenta 3 gestores de bases de datos, sus características
 principales, las ventajas y desventajas. (valor 6)
+
+![image](https://user-images.githubusercontent.com/101481084/172527436-937d7ea3-3f15-4cb7-8853-aa235265042d.png)
+
 
 ![image](https://user-images.githubusercontent.com/91554777/170415427-e2b7321b-a97f-43b0-ac24-6e506c307e6b.png)
 
