@@ -84,42 +84,51 @@ Modelo entidad/relación
 
 Base de datos para MySQL
 
-  CREATE DATABASE EVALUACION2;
-  USE EVALUACION2;
+ CREATE DATABASE Tienda; 
+USE Tienda;
 
-  CREATE TABLE Proveedor (
-  ID_prov VARCHAR(100) PRIMARY KEY,
-  Nom_prov VARCHAR(100) NOT NULL,
-  Dir_prov VARCHAR(100),
-  Tel_prov VARCHAR (20),
-  Tipo_prov VARCHAR (50),
-  Prod_prov VARCHAR (30)  
-  );
+CREATE TABLE Fabricante ( 
+ ID_prov VARCHAR(100) PRIMARY KEY,
+ Nom_prov VARCHAR(100) NOT NULL,
+ Dir_prov VARCHAR(100), 
+ Tel_prov VARCHAR (20), 
+ Tipo_prov VARCHAR (50),
+ Prod_prov VARCHAR (30)
+);
+ 
+ INSERT INTO Fabricante VALUES ("1", "SEAGATE", "Calle 1", "12345", "HARDWARE", "DISCO DURO SATA 3 1 TB" );
+ INSERT INTO Fabricante VALUES ("2", "CRUCIAL", "Calle 2", "12341", "HARDWARE", "MEMORIA RAM DDRR4 8 GB" );
+ INSERT INTO Fabricante VALUES ("3", "SAMSUNG", "Calle 3", "12342", "HARDWARE", "DISCO SSD 1TB" );
+ INSERT INTO Fabricante VALUES ("4", "GIGABYTE", "Calle 4", "12342", "HARDWARE", "GeForce GTX 1880 EXTREME" );
+INSERT INTO Fabricante VALUES ("5", "ASUS", "Calle 5", "12343", "HARDWARE", "Monitor 24 LED FULL HD" );
+INSERT INTO Fabricante VALUES ("6", "LENOVO", "Calle 6", "12344", "HARDWARE", "Portátil Yoga 520" );
+INSERT INTO Fabricante VALUES ("7", "HP", "Calle 7", "12346", "HARDWARE", "Impresora HP Deskjet 3700" );
 
-  CREATE TABLE Producto (
-  ID_prod VARCHAR (100) PRIMARY KEY,
-  Nom_prod VARCHAR (100),
-  Marca VARCHAR (50),
-  Tipo_prod VARCHAR (30),
-  Precio_prod VARCHAR (20),
-  ID_prov1 VARCHAR (20),
-    FOREIGN KEY (ID_prov1) REFERENCES Proveedor (ID_prov)
-  );
 
-  CREATE TABLE Sucursal (
-  ID_sucursal VARCHAR(100) PRIMARY KEY,
-  Dir_suc VARCHAR(100),
-  Tel_suc VARCHAR(100),
-  No_empleados INT
-  );
 
-  CREATE TABLE suc_prov(
-  ID_sucursal1 VARCHAR(100),
-  ID_prov2 VARCHAR (100),
-  FOREIGN KEY (ID_sucursal1) REFERENCES Sucursal (ID_sucursal),
-  FOREIGN KEY (ID_prov2) REFERENCES Proveedor (ID_prov)
+CREATE TABLE Producto ( 
+ ID_prod VARCHAR (100) PRIMARY KEY, 
+ Nom_prod VARCHAR (100), 
+ Precio_prod FLOAT, 
+ ID_prov1 VARCHAR (20), 
+ FOREIGN KEY (ID_prov1) REFERENCES Fabricante (ID_prov) );
+ 
+INSERT INTO Producto VALUES ("DD-23", "DISCO DURO SATA 3 1 TB", 86.99, "1");
+INSERT INTO Producto VALUES ("MM-34", "MEMORIA RAM DDRR4 8 GB", 120.6, "2");
+INSERT INTO Producto VALUES ("DD-98", "DISCO SSD 1TB",150.99, "3");
+INSERT INTO Producto VALUES ("MM-98", "GeForce GTX 1080 EXTREME", 185.70, "4");
+INSERT INTO Producto VALUES ("MM-23", "GeForce GTX 1050 TI", 755.6, "2");
+INSERT INTO Producto VALUES ("MT-12", "MONITOR 24 LED FULL HD", 202.1, "5" );
+INSERT INTO Producto VALUES ("MT-08", "MONITOR 27 LED FULL HD", 24.99, "5" );
+INSERT INTO Producto VALUES ("LP-19", "PORTATIL YOGA 520", 559.2, "6" );
+INSERT INTO Producto VALUES ("LP-11", "PORTATIL IDEAPD 320", 444.2, "6" );
+INSERT INTO Producto VALUES ("IM-56", "IMPRESORA HP DESKJET 3720", 59.99, "7" );
+INSERT INTO Producto VALUES ("IP-54", "IMPRESORA HP LASERJET PRO M26", 180.3, "7" );
 
-  );
+USE Tienda;
+--SELECT Nom_prov, Nom_prod FROM Fabricante INNER JOIN Producto ON Fabricante.ID_prov=Producto.ID_prod;
+
+
 
 
 
