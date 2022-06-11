@@ -83,3 +83,41 @@ Modelo entidad/relación
 
 
 Base de datos para MySQL
+CREATE DATABASE EVALUACION2;
+USE EVALUACION2;
+
+
+CREATE TABLE Proveedores (
+ID_prov VARCHAR(100) PRIMARY KEY,
+Non_prov VARCHAR(100) NOT NULL,
+Dir_prov VARCHAR(100),
+Tel_prov VARCHAR (20),
+Tipo_prov VARCHAR (50),
+Prod_prov VARCHAR (30)  
+);
+
+CREATE TABLE Producto (
+ID_prod VARCHAR (100) PRIMARY KEY,
+Nom_prod VARCHAR (100),
+Marca VARCHAR (50),
+Tipo_prod VARCHAR (30),
+Precio_prod VARCHAR (20),
+ID_prov1 VARCHAR (20),
+  FOREIGN KEY (ID_prov1) REFERENCES Proveedores (ID_prov)
+);
+
+CREATE TABLE Sucursal (
+ID_sucursal VARCHAR(100) PRIMARY KEY,
+Dir_suc VARCHAR(100),
+Tel_suc VARCHAR(100),
+No_empleados INT
+);
+
+CREATE TABLE Tabla_intermedia (
+ID_sucursal1 VARCHAR (100),
+ID_prov2 VARCHAR (100),
+FOREIGN KEY ID_sucursal1 REFERENCES Sucursal(ID_sucursal),
+FOREIGN KEY ID_prov2 REFERENCES Proveedores (ID_prov)
+
+);
+
