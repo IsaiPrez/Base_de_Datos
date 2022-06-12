@@ -44,6 +44,9 @@ productos. (valor 4.5)
 uno de los fabricantes. El resultado mostrará el nombre del fabricante junto con los
 datos que se solicitan. (valor 4.5)
 
+SELECT Nom_prov, MAX (Precio_prod), MIN (Precio_prod), AVG (Precio_prod) FROM Fabricante 
+GROUP BY Nom_prov;
+
 4. Muestra el nombre de cada fabricante, junto con el precio máximo, precio mínimo,
 precio medio y el número total de productos de los fabricantes que tienen un precio
 medio superior a 200€. Es necesario mostrar el nombre del fabricante. (valor 4.5)
